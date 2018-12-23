@@ -1,14 +1,15 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 
-export default class ToDoItems extends Component {
-  render() {
-    return (
-      <Fragment>
-        <li className="todo__item">
-          <input type="checkbox" />
-          <p>Placeholder text here</p>
-        </li>
-      </Fragment>
-    )
-  }
+const ToDoItems = (props) => {
+  console.log(props)
+  return (
+    <Fragment>
+      <li className="todo__item">
+        <input type="checkbox" />
+        <p>{props.text}</p>
+      </li>
+    </Fragment>
+  )
 }
+
+export default ToDoItems

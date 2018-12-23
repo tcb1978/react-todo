@@ -1,18 +1,24 @@
 import React, { Component, Fragment } from 'react';
 import ToDoItems from '../../../Components/ToDoItems/ToDoItems';
 import './SectionToDo.scss';
+import json from '../../../Data/ToDos.json';
 
 export default class SectionToDo extends Component {
   render() {
+    const ToDoListItems = json.todosData.map(item => {
+      return (
+        <ToDoItems
+        key={item.id}
+        text={item.text}
+        completed={item.completed}/>
+      )
+    })
     return (
       <Fragment>
-        <section class="section section__todo">
+        <section className="section section__todo">
           <div className="todo__inner">
             <ul className="todo__list">
-              <ToDoItems/>
-              <ToDoItems/>
-              <ToDoItems/>
-              <ToDoItems/>
+              {ToDoListItems}
             </ul>
           </div>
         </section>
