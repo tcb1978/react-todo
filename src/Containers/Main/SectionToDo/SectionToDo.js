@@ -7,13 +7,11 @@ export default class SectionToDo extends Component {
   constructor(props) {
     super(props);
     this.state = ({
-      id: todosData.id,
-      text: todosData.text,
-      completed: todosData.completed
+      todos: todosData
     });
   }
   render() {
-    const toDoListItems = todosData.todosData.map(item => {
+    const toDoListItems = this.state.todos.todosData.map(item => {
       return (
         <ToDoItems
         key={item.id}
