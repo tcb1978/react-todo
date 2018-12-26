@@ -15,6 +15,7 @@ export default class SectionToDo extends Component {
     const toDoListItems = this.state.todos.todosData.map( item => {
       return (
         <ToDoItems
+        id={item.id}
         key={item.id}
         text={item.text}
         completed={item.completed}/>

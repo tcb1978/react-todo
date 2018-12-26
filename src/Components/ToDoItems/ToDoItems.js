@@ -4,7 +4,7 @@ export default class ToDoItems extends Component {
   constructor(props) {
     super(props);
     this.state = ({
-      completed: false,
+      completed: false
     });
   }
 
@@ -17,6 +17,11 @@ export default class ToDoItems extends Component {
   }
 
   render() {
+    const completedStyle = {
+      fontStyle: "italic",
+      color: "#cdcdcd",
+      textDecoration: "line-through"
+    }
     return (
       <Fragment>
         <li className="todo__item">
@@ -26,7 +31,7 @@ export default class ToDoItems extends Component {
             name="checkbox"
             onChange={this.onChange}
           />
-          <p>{this.props.text}</p>
+          <p style={this.state.completed ? completedStyle : null}>{this.props.text}</p>
         </li>
       </Fragment>
     )
