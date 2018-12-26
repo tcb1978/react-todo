@@ -1,15 +1,30 @@
 import React, { Component, Fragment } from 'react';
 
 export default class ToDoItems extends Component {
+  constructor(props) {
+    super(props);
+    this.state = ({
+      completed: false,
+    });
+  }
+
+  onChange = () => {
+    this.setState( prevState => {
+      return {
+        completed: !prevState.completed,
+      }
+    });
+  }
+
   render() {
     return (
       <Fragment>
         <li className="todo__item">
           <input
             type="checkbox"
-            checked={this.props.completed}
+            checked={this.state.completed}
             name="checkbox"
-            onChange={this.handleChange}
+            onChange={this.onChange}
           />
           <p>{this.props.text}</p>
         </li>

@@ -10,8 +10,9 @@ export default class SectionToDo extends Component {
       todos: todosData
     });
   }
+
   render() {
-    const toDoListItems = this.state.todos.todosData.map(item => {
+    const toDoListItems = this.state.todos.todosData.map( item => {
       return (
         <ToDoItems
         key={item.id}
