@@ -1,11 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import ToDoItems from '../../../Components/ToDoItems/ToDoItems';
 import './SectionToDo.scss';
-import json from '../../../Data/ToDos.json';
+import todosData from '../../../Data/ToDos.json';
 
 export default class SectionToDo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = ({
+      id: todosData.id,
+      text: todosData.text,
+      completed: todosData.completed
+    });
+  }
   render() {
-    const ToDoListItems = json.todosData.map(item => {
+    const toDoListItems = todosData.todosData.map(item => {
       return (
         <ToDoItems
         key={item.id}
@@ -18,7 +26,7 @@ export default class SectionToDo extends Component {
         <section className="section section__todo">
           <div className="todo__inner">
             <ul className="todo__list">
-              {ToDoListItems}
+              {toDoListItems}
             </ul>
           </div>
         </section>
